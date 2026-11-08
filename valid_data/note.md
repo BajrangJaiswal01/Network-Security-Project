@@ -1,0 +1,1 @@
+## Short note: valid_data/test.csv mein woh testing records hote hain jo data validation pass kar chuke hain. Ye model ki generalization performance check karne ke kaam aate hain.

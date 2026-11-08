@@ -1,3 +1,13 @@
+## training pipeline is for automate the main.py module/file 
+
+"""
+Training Pipeline: ML project ka automated workflow hai, jo Data Ingestion → Data Validation → Data Transformation → Model Training 
+jaise steps ko fixed sequence mein execute karke trained model generate karta hai.
+
+Example: Network Security project mein main.py se complete training process initiate hota hai.
+
+"""
+
 import os
 import sys
 
@@ -28,7 +38,7 @@ from networksecurity.entity.artifact_entity import (
 class TrainingPipeline:
     def __init__(self):
         self.training_pipeline_config=TrainingPipelineConfig()
-        self.s3_sync = S3Sync()
+        #self.s3_sync = S3Sync()
         
 
     def start_data_ingestion(self):
@@ -91,8 +101,8 @@ class TrainingPipeline:
             data_transformation_artifact=self.start_data_transformation(data_validation_artifact=data_validation_artifact)
             model_trainer_artifact=self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
             
-            self.sync_artifact_dir_to_s3()
-            self.sync_saved_model_dir_to_s3()
+            #self.sync_artifact_dir_to_s3()
+           # self.sync_saved_model_dir_to_s3()
             
             return model_trainer_artifact
         except Exception as e:
